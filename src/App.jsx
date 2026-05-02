@@ -8,7 +8,7 @@ function App() {
   const [editId, setEditId] = useState(null);
 
   const fetchStudents = async () => {
-    const res = await axios.get("http://localhost:5000/students");
+    const res = await axios.get("https://full-mern-zl8y.onrender.com/students");
     setStudents(res.data);
   };
 
@@ -23,13 +23,13 @@ function App() {
     }
 
     if (editId) {
-      await axios.put(`http://localhost:5000/update/${editId}`, {
+      await axios.put(`https://full-mern-zl8y.onrender.com/update/${editId}`, {
         name,
         age: Number(age),
       });
       setEditId(null);
     } else {
-      await axios.post("http://localhost:5000/add", {
+      await axios.post("https://full-mern-zl8y.onrender.com/add", {
         name,
         age: Number(age),
       });
@@ -41,7 +41,7 @@ function App() {
   };
 
   const deleteStudent = async (id) => {
-    await axios.delete(`http://localhost:5000/delete/${id}`);
+    await axios.delete(`https://full-mern-zl8y.onrender.com/delete/${id}`);
     fetchStudents();
   };
 
